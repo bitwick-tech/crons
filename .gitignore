@@ -1,1 +1,4 @@
-magic.log
+__pycache__/*
+.idea/*
+*.log
+venv/*
