@@ -34,10 +34,14 @@ def get_data(com):
         headers = {"Content-Type": "application/json",
                    "Authorization": "Bearer " + "8ee2ac117dfd5ac86e7646841817460eff4e6f44"}
         ret = requests.post(url, headers=headers)
+        if ret.status_code != 200:
+            return
         ret = ret.json()
         ret = remove_fields(ret)
     else:
         ret = (requests.get(url))
+        if ret.status_code != 200:
+            return
         ret = ret.json()
     results[com] = ret
 
