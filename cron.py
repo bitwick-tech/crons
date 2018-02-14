@@ -6,4 +6,5 @@ if __name__ == '__main__':
     while x > 0:
         x = x-1
         magic.do_magic()
-        time.sleep(28)
+        if x != 0:
+            time.sleep(28)

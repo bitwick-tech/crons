@@ -1,14 +1,49 @@
+import ast
 import datetime
 import logging
 from threading import Thread
 import pymongo
 import requests
+import pytz
+import redis
+from fake_useragent import UserAgent
+import json
 
-apiUrlMapping = {"zebpay": "https://www.zebapi.com/api/v1/market/ticker/btc/inr",
+
+coinMapping = {}
+coinMapping["btc"]="Bitcoin"
+coinMapping["bch"]="Bitcoin Cash"
+coinMapping["xrp"]="Ripple"
+coinMapping["eth"]="Ether"
+coinMapping["ltc"]="Litecoin"
+coinMapping["omg"]="Omisego"
+coinMapping["gnt"]="Golem"
+coinMapping["miota"]="IOTA"
+coinMapping["btc__zebpay"]="Bitcoin  zebpay"
+coinMapping["bch__zebpay"]="Bitcoin Cash  zebpay"
+coinMapping["ltc__zebpay"]="Litecoin  zebpay"
+coinMapping["xrp__zebpay"]="Ripple  zebpay"
+coinMapping["btc__unocoin"]="Bitcoin  unocoin"
+coinMapping["btc__koinex"]="Bitcoin  koinex"
+coinMapping["xrp__koinex"]="Ripple  koinex"
+coinMapping["bch__koinex"]="Bitcoin Cash/BCC  koinex"
+coinMapping["eth__koinex"]="Ether  koinex"
+coinMapping["ltc__koinex"]="Litecoin  koinex"
+coinMapping["omg__koinex"]="Omisego  koinex"
+coinMapping["miota__koinex"]="IOTA  koinex"
+coinMapping["gnt__koinex"]="GOLEM  koinex"
+
+
+apiUrlMapping = {'btc__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/btc/inr',
+                 'bch__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/bch/inr',
+                 'ltc__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/ltc/inr',
+                 'xrp__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/xrp/inr',
                   "koinex": "https://koinex.in/api/ticker",
                   "unocoin": "https://www.unocoin.com/api/v1/general/prices"}
+
+zebPayCoins = ["btc", "bch", "ltc", "xrp"]
 logging.basicConfig(filename='magic.log', level=logging.DEBUG)
-results = {"ts": datetime.datetime.now(datetime.timezone.utc)}
+results = {}
 
 
 class GetDataThread(Thread):
@@ -39,7 +74,9 @@ def get_data(com):
         ret = ret.json()
         ret = remove_fields(ret)
     else:
-        ret = (requests.get(url))
+        ua = UserAgent()
+        headers = {'User-Agent': str(ua.random)}
+        ret = (requests.get(url, headers=headers))
         if ret.status_code != 200:
             return
         ret = ret.json()
@@ -54,7 +91,6 @@ def get_final_data():
         t.start()
     for t in threads:
         t.join()
-    return results
 
 
 def get_mongo_connection():
@@ -64,10 +100,71 @@ def get_mongo_connection():
 
 
 def do_magic():
+    global results
+    results = {}
+    results = {"ts": datetime.datetime.now(datetime.timezone.utc)}
     collection = get_mongo_connection()
-    finalData = get_final_data()
-    idd = collection.insert_one(finalData).inserted_id
+    get_final_data()
+    #print(results)
+    idd = collection.insert_one(results).inserted_id
     logging.info(str(idd))
+    pymongo.MongoClient().close()
+    ret = transform_res(results)
+    #store ret to redis
+    r = redis.Redis(host='localhost', port=6379, db=0)
+    key = "latestCoinData"
+    r.set(key, json.dumps(ret))
+
+
+def transform_res(res):
+    res["ts"] = res["ts"].replace(tzinfo=pytz.utc).timestamp()
+    ret = {}
+    ret["coinData"] = []
+    for key, values in res.items():
+        if key == "koinex":
+            ret["coinData"] = ret["coinData"] + (transform_koinex_data(values["prices"]))
+        elif key == "unocoin":
+            ret["coinData"].append(transform_unocoin_data(values))
+        elif "zebpay" in key:
+            ret["coinData"].append(transform_zebpay_data(key, values))
+
+    ret["ts"] = res["ts"]
+    return ret
+
+
+def fill_coin_data(id):
+    res = {}
+    res["id"] = id
+    res["name"] = coinMapping[id]
+    res["currency"] = "inr"
+    res["op"] = "0.0"
+    return res
+
+
+def transform_koinex_data(res):
+    ret = []
+    for key, val in res.items():
+        tmp = {}
+        newkey = (key.lower() + "__koinex")
+        tmp = {}
+        tmp = fill_coin_data(newkey)
+        tmp["cp"] = str(val)
+        ret.append(tmp)
+    return ret
+
+
+def transform_unocoin_data(res):
+    ret = {}
+    ret = fill_coin_data("btc__unocoin")
+    ret["cp"] = str(res["buybtc"])
+    return ret
+
+
+def transform_zebpay_data(key, res):
+    ret = {}
+    ret = fill_coin_data(key)
+    ret["cp"] = str(res["buy"])
+    return ret
 
 
 if __name__ == '__main__':
