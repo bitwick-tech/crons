@@ -1,4 +1,3 @@
-import ast
 import datetime
 import logging
 from threading import Thread
@@ -44,6 +43,7 @@ apiUrlMapping = {'btc__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new
 zebPayCoins = ["btc", "bch", "ltc", "xrp"]
 logging.basicConfig(filename='magic.log', level=logging.DEBUG)
 results = {}
+openPrice = {}
 
 
 class GetDataThread(Thread):
@@ -102,14 +102,24 @@ def get_mongo_connection():
 def do_magic():
     global results
     results = {}
+    global openPrice
+    openPrice = {}
     results = {"ts": datetime.datetime.now(datetime.timezone.utc)}
     collection = get_mongo_connection()
     get_final_data()
     #print(results)
     idd = collection.insert_one(results).inserted_id
     logging.info(str(idd))
-    pymongo.MongoClient().close()
+    #pymongo.MongoClient().close()
+
+    get_open_price_data_from_redis()
+
     ret = transform_res(results)
+
+    #insert open price to coin data
+    for coin in ret["coinData"]:
+        coin["op"] = openPrice[coin["id"]]
+
     #store ret to redis
     r = redis.Redis(host='localhost', port=6379, db=0)
     key = "latestCoinData"
@@ -165,6 +175,13 @@ def transform_zebpay_data(key, res):
     ret = fill_coin_data(key)
     ret["cp"] = str(res["buy"])
     return ret
+
+
+def get_open_price_data_from_redis():
+    r = redis.Redis(host='localhost', port=6379, db=0, decode_responses=True)
+    key = "coinsOP"
+    global openPrice
+    openPrice = r.hgetall(key)
 
 
 if __name__ == '__main__':
