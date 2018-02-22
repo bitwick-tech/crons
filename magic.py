@@ -8,6 +8,8 @@ import redis
 from fake_useragent import UserAgent
 import json
 
+redis_host = '172.31.22.154'
+
 
 coinMapping = {}
 coinMapping["btc"]="Bitcoin"
@@ -123,7 +125,7 @@ def do_magic():
         if coin["id"] in openPrice:
             coin["op"] = openPrice[coin["id"]]
     #store ret to redis
-    r = redis.Redis(host='localhost', port=6379, db=0)
+    r = redis.Redis(host=redis_host, port=6379, db=0)
     key = "latestCoinData"
     r.set(key, json.dumps(ret))
 
@@ -157,7 +159,6 @@ def fill_coin_data(id):
 def transform_koinex_data(res):
     ret = []
     for key, val in res.items():
-        tmp = {}
         newkey = (key.lower() + "__koinex")
         tmp = {}
         tmp = fill_coin_data(newkey)
@@ -181,7 +182,7 @@ def transform_zebpay_data(key, res):
 
 
 def get_open_price_data_from_redis():
-    r = redis.Redis(host='localhost', port=6379, db=0, decode_responses=True)
+    r = redis.Redis(host=redis_host, port=6379, db=0, decode_responses=True)
     key = "coinsOP"
     global openPrice
     openPrice = r.hgetall(key)
