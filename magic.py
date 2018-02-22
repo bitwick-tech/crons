@@ -18,6 +18,7 @@ coinMapping["ltc"]="Litecoin"
 coinMapping["omg"]="Omisego"
 coinMapping["gnt"]="Golem"
 coinMapping["miota"]="IOTA"
+coinMapping["req"]="Request Network"
 coinMapping["btc__zebpay"]="Bitcoin  zebpay"
 coinMapping["bch__zebpay"]="Bitcoin Cash  zebpay"
 coinMapping["ltc__zebpay"]="Litecoin  zebpay"
@@ -31,6 +32,7 @@ coinMapping["ltc__koinex"]="Litecoin  koinex"
 coinMapping["omg__koinex"]="Omisego  koinex"
 coinMapping["miota__koinex"]="IOTA  koinex"
 coinMapping["gnt__koinex"]="GOLEM  koinex"
+coinMapping["req__koinex"]="Request Network koinex"
 
 
 apiUrlMapping = {'btc__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/btc/inr',
@@ -118,8 +120,8 @@ def do_magic():
 
     #insert open price to coin data
     for coin in ret["coinData"]:
-        coin["op"] = openPrice[coin["id"]]
-
+        if coin["id"] in openPrice:
+            coin["op"] = openPrice[coin["id"]]
     #store ret to redis
     r = redis.Redis(host='localhost', port=6379, db=0)
     key = "latestCoinData"
@@ -145,7 +147,8 @@ def transform_res(res):
 def fill_coin_data(id):
     res = {}
     res["id"] = id
-    res["name"] = coinMapping[id]
+    if id in coinMapping:
+        res["name"] = coinMapping[id]
     res["currency"] = "inr"
     res["op"] = "0.0"
     return res
