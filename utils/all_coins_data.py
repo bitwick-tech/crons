@@ -28,7 +28,7 @@ def generate_coinIdNameMapping_and_coinNameIdMapping():
 
 
 def add_coins_static_data_to_redis():
-	r = redis.Redis(host='localhost', port=6379, db=0)
+	r = redis.Redis(host=redis_host, port=6379, db=0)
 	key = "allCoinsStaticDataHash"
 	newData = {}
 	newData["v"] = 1
