@@ -2,6 +2,7 @@ import redis
 import json
 
 redis_host = '172.31.22.154'
+#redis_host = 'localhost'
 
 def run_cron():
     data = get_data_from_redis()

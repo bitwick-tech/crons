@@ -9,42 +9,24 @@ from fake_useragent import UserAgent
 import json
 
 redis_host = '172.31.22.154'
+#redis_host = 'localhost'
+
+allCoinsData = {'coinsData': [{'id': 'bch', 'name': 'Bitcoin Cash', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}]}, {'id': 'btc', 'name': 'Bitcoin', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'unocoin', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}]}, {'id': 'ltc', 'name': 'Litecoin', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}]}, {'id': 'eth', 'name': 'Ether', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}]}, {'id': 'xrp', 'name': 'Ripple', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}]}, {'id': 'omg', 'name': 'Omisego', 'e': [{'eid': 'koinex', 'c': ['inr']}]}, {'id': 'miota', 'name': 'IOTA', 'e': [{'eid': 'koinex', 'c': ['inr']}]}, {'id': 'gnt', 'name': 'Golem', 'e': [{'eid': 'koinex', 'c': ['inr']}]}, {'id': 'req', 'name': 'Request Network', 'e': [{'eid': 'koinex', 'c': ['inr']}]}]}
+allCoinsHash = {'bch': {'name': 'Bitcoin Cash', 'e': {'koinex': ['inr'], 'zebpay': ['inr']}}, 'btc': {'name': 'Bitcoin', 'e': {'koinex': ['inr'], 'unocoin': ['inr'], 'zebpay': ['inr']}}, 'ltc': {'name': 'Litecoin', 'e': {'koinex': ['inr'], 'zebpay': ['inr']}}, 'eth': {'name': 'Ether', 'e': {'koinex': ['inr'], 'zebpay': ['inr']}}, 'xrp': {'name': 'Ripple', 'e': {'koinex': ['inr'], 'zebpay': ['inr']}}, 'omg': {'name': 'Omisego', 'e': {'koinex': ['inr']}}, 'miota': {'name': 'IOTA', 'e': {'koinex': ['inr']}}, 'gnt': {'name': 'Golem', 'e': {'koinex': ['inr']}}, 'req': {'name': 'Request Network', 'e': {'koinex': ['inr']}}}
 
 
-coinMapping = {}
-coinMapping["btc"]="Bitcoin"
-coinMapping["bch"]="Bitcoin Cash"
-coinMapping["xrp"]="Ripple"
-coinMapping["eth"]="Ether"
-coinMapping["ltc"]="Litecoin"
-coinMapping["omg"]="Omisego"
-coinMapping["gnt"]="Golem"
-coinMapping["miota"]="IOTA"
-coinMapping["req"]="Request Network"
-coinMapping["btc__zebpay"]="Bitcoin  zebpay"
-coinMapping["bch__zebpay"]="Bitcoin Cash  zebpay"
-coinMapping["ltc__zebpay"]="Litecoin  zebpay"
-coinMapping["xrp__zebpay"]="Ripple  zebpay"
-coinMapping["btc__unocoin"]="Bitcoin  unocoin"
-coinMapping["btc__koinex"]="Bitcoin  koinex"
-coinMapping["xrp__koinex"]="Ripple  koinex"
-coinMapping["bch__koinex"]="Bitcoin Cash  koinex"
-coinMapping["eth__koinex"]="Ether  koinex"
-coinMapping["ltc__koinex"]="Litecoin  koinex"
-coinMapping["omg__koinex"]="Omisego  koinex"
-coinMapping["miota__koinex"]="IOTA  koinex"
-coinMapping["gnt__koinex"]="GOLEM  koinex"
-coinMapping["req__koinex"]="Request Network koinex"
-
+coinMapping = {'btc': 'Bitcoin', 'bch': 'Bitcoin Cash', 'xrp': 'Ripple', 'eth': 'Ether', 'ltc': 'Litecoin', 'omg': 'Omisego', 'gnt': 'Golem', 'miota': 'IOTA', 'req': 'Request Network', \
+'btc__zebpay': 'Bitcoin  zebpay', 'bch__zebpay': 'Bitcoin Cash  zebpay', 'ltc__zebpay': 'Litecoin  zebpay', 'xrp__zebpay': 'Ripple  zebpay', 'eth__zebpay': 'Ether  zebpay', 'btc__unocoin': 'Bitcoin  unocoin', 'btc__koinex': 'Bitcoin  koinex', 'xrp__koinex': 'Ripple  koinex', 'bch__koinex': 'Bitcoin Cash  koinex', 'eth__koinex': 'Ether  koinex', 'ltc__koinex': 'Litecoin  koinex', 'omg__koinex': 'Omisego  koinex', 'miota__koinex': 'IOTA  koinex', 'gnt__koinex': 'GOLEM  koinex', 'req__koinex': 'Request Network koinex'}
 
 apiUrlMapping = {'btc__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/btc/inr',
                  'bch__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/bch/inr',
                  'ltc__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/ltc/inr',
                  'xrp__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/xrp/inr',
+                 'eth__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/eth/inr',
                   "koinex": "https://koinex.in/api/ticker",
                   "unocoin": "https://www.unocoin.com/api/v1/general/prices"}
 
-zebPayCoins = ["btc", "bch", "ltc", "xrp"]
+zebPayCoins = ["btc", "bch", "ltc", "xrp", "eth"]
 logging.basicConfig(filename='magic.log', level=logging.DEBUG)
 results = {}
 openPrice = {}
@@ -126,8 +108,24 @@ def do_magic():
             coin["op"] = openPrice[coin["id"]]
     #store ret to redis
     r = redis.Redis(host=redis_host, port=6379, db=0)
-    key = "latestCoinData"
-    r.set(key, json.dumps(ret))
+    key2 = "latestCoinData"
+    r.set(key2, json.dumps(ret))
+
+    ret2 = get_price_data_v1(ret["coinData"])
+    pipe = r.pipeline()
+    for key, coin in ret2.items():
+        pipe.set(key, json.dumps(coin))
+    pipe.execute()
+
+
+def get_price_data_v1(ret):
+    result = {}
+    for coin in ret:
+        tmp = {}
+        tmp['cp'] = coin['cp']
+        tmp['op'] = coin['op']
+        result[coin['id'] + "__" + coin['currency']] = tmp
+    return result
 
 
 def transform_res(res):
