@@ -6,36 +6,19 @@ redis_host = '172.31.22.154'
 
 exchanges = ["koinex", "unocoin", "zebpay"]
 currencies = ["inr"]
-coinIds = ["bch", "btc", "ltc", "eth", "xrp", "omg", "miota", "gnt", "req", "zrx"]
+coinIds = ["bch", "btc", "ltc", "eth", "xrp", "omg", "miota", "gnt", "req", "zrx", "bat", "ae"]
 coinNames = ["Bitcoin Cash", "Bitcoin", "Litecoin", "Ether", "Ripple", "Omisego", "IOTA", "Golem", "Request Network",
-             "0x Protocol"]
+             "0x Protocol", "Basic Attention Token", "Aeternity"]
 
 coinIdNameMapping = {'bch': 'Bitcoin Cash', 'btc': 'Bitcoin', 'ltc': 'Litecoin', 'eth': 'Ether', 'xrp': 'Ripple',
-                     'omg': 'Omisego', 'miota': 'IOTA', 'gnt': 'Golem', 'req': 'Request Network', 'zrx': '0x Protocol'}
+                     'omg': 'Omisego', 'miota': 'IOTA', 'gnt': 'Golem', 'req': 'Request Network', 'zrx': '0x Protocol',
+                     'bat': 'Basic Attention Token', 'ae': 'Aeternity'}
 coinNameIdMapping = {'Bitcoin Cash': 'bch', 'Bitcoin': 'btc', 'Litecoin': 'ltc', 'Ether': 'eth', 'Ripple': 'xrp',
-                     'Omisego': 'omg', 'IOTA': 'miota', 'Golem': 'gnt', 'Request Network': 'req', '0x Protocol': 'zrx'}
+                     'Omisego': 'omg', 'IOTA': 'miota', 'Golem': 'gnt', 'Request Network': 'req', '0x Protocol': 'zrx',
+                     'Basic Attention Token': 'bat', 'Aeternity': 'ae'}
 
-allCoinsData = {'coinsData': [
-    {'id': 'bch', 'name': 'Bitcoin Cash', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}]},
-    {'id': 'btc', 'name': 'Bitcoin',
-     'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'unocoin', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}]},
-    {'id': 'ltc', 'name': 'Litecoin', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}]},
-    {'id': 'eth', 'name': 'Ether', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}]},
-    {'id': 'xrp', 'name': 'Ripple', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}]},
-    {'id': 'omg', 'name': 'Omisego', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
-    {'id': 'miota', 'name': 'IOTA', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
-    {'id': 'gnt', 'name': 'Golem', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
-    {'id': 'req', 'name': 'Request Network', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
-    {'id': 'zrx', 'name': '0x Protocol', 'e': [{'eid': 'koinex', 'c': ['inr']}]}]}
-allCoinsHash = {'bch': {'name': 'Bitcoin Cash', 'e': {'koinex': ['inr'], 'zebpay': ['inr']}},
-                'btc': {'name': 'Bitcoin', 'e': {'koinex': ['inr'], 'unocoin': ['inr'], 'zebpay': ['inr']}},
-                'ltc': {'name': 'Litecoin', 'e': {'koinex': ['inr'], 'zebpay': ['inr']}},
-                'eth': {'name': 'Ether', 'e': {'koinex': ['inr'], 'zebpay': ['inr']}},
-                'xrp': {'name': 'Ripple', 'e': {'koinex': ['inr'], 'zebpay': ['inr']}},
-                'omg': {'name': 'Omisego', 'e': {'koinex': ['inr']}},
-                'miota': {'name': 'IOTA', 'e': {'koinex': ['inr']}}, 'gnt': {'name': 'Golem', 'e': {'koinex': ['inr']}},
-                'req': {'name': 'Request Network', 'e': {'koinex': ['inr']}},
-                'zrx': {'name': '0x Protocol', 'e': {'koinex': ['inr']}}}
+allCoinsData = {'coinsData': [{'id': 'bch', 'name': 'Bitcoin Cash', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}]}, {'id': 'btc', 'name': 'Bitcoin', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'unocoin', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}]}, {'id': 'ltc', 'name': 'Litecoin', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}]}, {'id': 'eth', 'name': 'Ether', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}]}, {'id': 'xrp', 'name': 'Ripple', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}]}, {'id': 'omg', 'name': 'Omisego', 'e': [{'eid': 'koinex', 'c': ['inr']}]}, {'id': 'miota', 'name': 'IOTA', 'e': [{'eid': 'koinex', 'c': ['inr']}]}, {'id': 'gnt', 'name': 'Golem', 'e': [{'eid': 'koinex', 'c': ['inr']}]}, {'id': 'req', 'name': 'Request Network', 'e': [{'eid': 'koinex', 'c': ['inr']}]}, {'id': 'zrx', 'name': '0x Protocol', 'e': [{'eid': 'koinex', 'c': ['inr']}]}, {'id': 'bat', 'name': 'Basic Attention Token', 'e': [{'eid': 'koinex', 'c': ['inr']}]}, {'id': 'ae', 'name': 'Aeternity', 'e': [{'eid': 'koinex', 'c': ['inr']}]}]}
+allCoinsHash = {'bch': {'name': 'Bitcoin Cash', 'e': {'koinex': ['inr'], 'zebpay': ['inr']}}, 'btc': {'name': 'Bitcoin', 'e': {'koinex': ['inr'], 'unocoin': ['inr'], 'zebpay': ['inr']}}, 'ltc': {'name': 'Litecoin', 'e': {'koinex': ['inr'], 'zebpay': ['inr']}}, 'eth': {'name': 'Ether', 'e': {'koinex': ['inr'], 'zebpay': ['inr']}}, 'xrp': {'name': 'Ripple', 'e': {'koinex': ['inr'], 'zebpay': ['inr']}}, 'omg': {'name': 'Omisego', 'e': {'koinex': ['inr']}}, 'miota': {'name': 'IOTA', 'e': {'koinex': ['inr']}}, 'gnt': {'name': 'Golem', 'e': {'koinex': ['inr']}}, 'req': {'name': 'Request Network', 'e': {'koinex': ['inr']}}, 'zrx': {'name': '0x Protocol', 'e': {'koinex': ['inr']}}, 'bat': {'name': 'Basic Attention Token', 'e': {'koinex': ['inr']}}, 'ae': {'name': 'Aeternity', 'e': {'koinex': ['inr']}}}
 
 
 def generate_coinIdNameMapping_and_coinNameIdMapping():
