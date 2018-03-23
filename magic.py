@@ -60,7 +60,7 @@ coinMapping = {'btc': 'Bitcoin', 'bch': 'Bitcoin Cash', 'xrp': 'Ripple', 'eth': 
                'btc__unocoin': 'Bitcoin  unocoin', 'btc__koinex': 'Bitcoin  koinex', 'xrp__koinex': 'Ripple  koinex', 'bch__koinex': 'Bitcoin Cash  koinex', 'eth__koinex': 'Ether  koinex',
                'ltc__koinex': 'Litecoin  koinex', 'omg__koinex': 'Omisego  koinex', 'miota__koinex': 'IOTA  koinex', 'gnt__koinex': 'GOLEM  koinex', 'req__koinex': 'Request Network koinex',
                'zrx__koinex': '0x Protocol koinex', 'bat__koinex': "Basic Attention Token", 'ae__koinex': "Aeternity", 'trx__koinex': 'TRON', "xlm": 'Stellar',
-               'eos__koinex': 'EOS', 'neo__koinex': 'NEO', 'gas__koinex': 'GAS', 'aion__koinex': 'AION', 'ncash__koinex': 'Nucleus Vision', 'xrb': 'Nano'
+               'eos__koinex': 'EOS', 'neo__koinex': 'NEO', 'gas__koinex': 'GAS', 'aion__koinex': 'AION', 'ncash__koinex': 'Nucleus Vision', 'xrb__koinex': 'Nano'
                }
 
 apiUrlMapping = {'btc__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/btc/inr',
