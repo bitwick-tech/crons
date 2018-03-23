@@ -26,7 +26,13 @@ allCoinsData = {'coinsData': [
     {'id': 'bat', 'name': 'Basic Attention Token', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
     {'id': 'ae', 'name': 'Aeternity', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
     {'id': 'trx', 'name': 'TRON', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
-    {'id': 'xlm', 'name': 'Stellar', 'e': [{'eid': 'koinex', 'c': ['inr']}]}
+    {'id': 'xlm', 'name': 'Stellar', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
+    {'id': 'eos', 'name': 'EOS', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
+    {'id': 'neo', 'name': 'NEO', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
+    {'id': 'gas', 'name': 'GAS', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
+    {'id': 'aion', 'name': 'AION', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
+    {'id': 'ncash', 'name': 'Nucleus Vision', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
+    {'id': 'xrb', 'name': 'Nano', 'e': [{'eid': 'koinex', 'c': ['inr']}]}
     ]}
 allCoinsHash = {'bch': {'name': 'Bitcoin Cash', 'e': {'koinex': ['inr'], 'zebpay': ['inr']}},
                 'btc': {'name': 'Bitcoin', 'e': {'koinex': ['inr'], 'unocoin': ['inr'], 'zebpay': ['inr']}},
@@ -40,14 +46,22 @@ allCoinsHash = {'bch': {'name': 'Bitcoin Cash', 'e': {'koinex': ['inr'], 'zebpay
                 'bat': {'name': 'Basic Attention Token', 'e': {'koinex': ['inr']}},
                 'ae': {'name': 'Aeternity', 'e': {'koinex': ['inr']}},
                 'trx': {'name': 'TRON', 'e': {'koinex': ['inr']}},
-                'xlm': {'name': 'Stellar', 'e': {'koinex': ['inr']}}
+                'xlm': {'name': 'Stellar', 'e': {'koinex': ['inr']}},
+                'eos': {'name': 'EOS', 'e': {'koinex': ['inr']}},
+                'neo': {'name': 'NEO', 'e': {'koinex': ['inr']}},
+                'gas': {'name': 'GAS', 'e': {'koinex': ['inr']}},
+                'aion': {'name': 'AION', 'e': {'koinex': ['inr']}},
+                'ncash': {'name': 'Nucleus Vision', 'e': {'koinex': ['inr']}},
+                'xrb': {'name': 'Nano', 'e': {'koinex': ['inr']}}
                 }
 
 coinMapping = {'btc': 'Bitcoin', 'bch': 'Bitcoin Cash', 'xrp': 'Ripple', 'eth': 'Ether', 'ltc': 'Litecoin', 'omg': 'Omisego', 'gnt': 'Golem', 'miota': 'IOTA', 'req': 'Request Network',
 'btc__zebpay': 'Bitcoin  zebpay', 'bch__zebpay': 'Bitcoin Cash  zebpay', 'ltc__zebpay': 'Litecoin  zebpay', 'xrp__zebpay': 'Ripple  zebpay', 'eth__zebpay': 'Ether  zebpay',
                'btc__unocoin': 'Bitcoin  unocoin', 'btc__koinex': 'Bitcoin  koinex', 'xrp__koinex': 'Ripple  koinex', 'bch__koinex': 'Bitcoin Cash  koinex', 'eth__koinex': 'Ether  koinex',
                'ltc__koinex': 'Litecoin  koinex', 'omg__koinex': 'Omisego  koinex', 'miota__koinex': 'IOTA  koinex', 'gnt__koinex': 'GOLEM  koinex', 'req__koinex': 'Request Network koinex',
-               'zrx__koinex': '0x Protocol koinex', 'bat__koinex': "Basic Attention Token", 'ae__koinex': "Aeternity", 'trx__koinex': 'TRON', "xlm": 'Stellar'}
+               'zrx__koinex': '0x Protocol koinex', 'bat__koinex': "Basic Attention Token", 'ae__koinex': "Aeternity", 'trx__koinex': 'TRON', "xlm": 'Stellar',
+               'eos__koinex': 'EOS', 'neo__koinex': 'NEO', 'gas__koinex': 'GAS', 'aion__koinex': 'AION', 'ncash__koinex': 'Nucleus Vision', 'xrb': 'Nano'
+               }
 
 apiUrlMapping = {'btc__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/btc/inr',
                  'bch__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/bch/inr',
