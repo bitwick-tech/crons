@@ -2,7 +2,7 @@ import redis
 import json
 
 redis_host = '172.31.22.154'
-#redis_host = 'localhost'
+# redis_host = 'localhost'
 
 def run_cron():
     data = get_data_from_redis()
@@ -13,7 +13,8 @@ def get_data_from_redis():
     r = redis.Redis(host=redis_host, port=6379, db=0)
     key = "latestCoinData"
     garbage = r.get(key)
-    garbage = json.loads(garbage)
+    if garbage is not None:
+        garbage = json.loads(garbage)
     return garbage
 
 
