@@ -287,10 +287,12 @@ def transform_coinome_data(res):
 def transform_coindelta_data(res):
     ret = []
     for key in res:
+        tmp = {}
         tmp['currency'] = key["MarketName"].lower().split('-')[1]
         if tmp['currency'] == 'inr':
             newkey = (key["MarketName"].lower().split('-')[0] + "__coindelta")
             tmp = fill_coin_data(newkey)
+            tmp['currency'] = key["MarketName"].lower().split('-')[1]
             tmp["cp"] = str(key["Last"])
             ret.append(tmp)
     return ret
