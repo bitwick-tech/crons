@@ -288,7 +288,7 @@ def transform_coindelta_data(res):
     ret = []
     for key in res:
         tmp['currency'] = key["MarketName"].lower().split('-')[1]
-        if tmp['currency'] == 'inr'
+        if tmp['currency'] == 'inr':
             newkey = (key["MarketName"].lower().split('-')[0] + "__coindelta")
             tmp = fill_coin_data(newkey)
             tmp["cp"] = str(key["Last"])
