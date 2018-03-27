@@ -12,22 +12,27 @@ redis_host = '172.31.22.154'
 # redis_host = 'localhost'
 
 allCoinsData = {'coinsData': [
-    {'id': 'bch', 'name': 'Bitcoin Cash', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}, {'eid': 'coinome', 'c': ['inr']}]},
+    {'id': 'bch', 'name': 'Bitcoin Cash', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']},
+                                                {'eid': 'coinome', 'c': ['inr']}, {'eid': 'coindelta', 'c': ['inr']}]},
     {'id': 'btc', 'name': 'Bitcoin',
-     'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'unocoin', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}, {'eid': 'coinome', 'c': ['inr']}]},
-    {'id': 'ltc', 'name': 'Litecoin', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}, {'eid': 'coinome', 'c': ['inr']}]},
-    {'id': 'eth', 'name': 'Ether', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}]},
-    {'id': 'xrp', 'name': 'Ripple', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}]},
-    {'id': 'omg', 'name': 'Omisego', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
+     'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'unocoin', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']},
+           {'eid': 'coinome', 'c': ['inr']}, {'eid': 'coindelta', 'c': ['inr']}]},
+    {'id': 'ltc', 'name': 'Litecoin', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']},
+                                            {'eid': 'coinome', 'c': ['inr']}, {'eid': 'coindelta', 'c': ['inr']}]},
+    {'id': 'eth', 'name': 'Ether', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']},
+                                         {'eid': 'coindelta', 'c': ['inr']}]},
+    {'id': 'xrp', 'name': 'Ripple', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']},
+                                          {'eid': 'coindelta', 'c': ['inr']}]},
+    {'id': 'omg', 'name': 'Omisego', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'coindelta', 'c': ['inr']}]},
     {'id': 'miota', 'name': 'IOTA', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
     {'id': 'gnt', 'name': 'Golem', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
     {'id': 'req', 'name': 'Request Network', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
-    {'id': 'zrx', 'name': '0x Protocol', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
+    {'id': 'zrx', 'name': '0x Protocol', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'coindelta', 'c': ['inr']}]},
     {'id': 'bat', 'name': 'Basic Attention Token', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
     {'id': 'ae', 'name': 'Aeternity', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
     {'id': 'trx', 'name': 'TRON', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
     {'id': 'xlm', 'name': 'Stellar', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
-    {'id': 'eos', 'name': 'EOS', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
+    {'id': 'eos', 'name': 'EOS', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'coindelta', 'c': ['inr']}]},
     {'id': 'neo', 'name': 'NEO', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
     {'id': 'gas', 'name': 'GAS', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
     {'id': 'aion', 'name': 'AION', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
@@ -36,24 +41,29 @@ allCoinsData = {'coinsData': [
     {'id': 'dash', 'name': 'DASH', 'e': [{'eid': 'coinome', 'c': ['inr']}]},
     {'id': 'dgb', 'name': 'DigiByte', 'e': [{'eid': 'coinome', 'c': ['inr']}]},
     {'id': 'zec', 'name': 'ZCash', 'e': [{'eid': 'coinome', 'c': ['inr']}]},
-    {'id': 'qtum', 'name': 'Qtum', 'e': [{'eid': 'coinome', 'c': ['inr']}]},
-    {'id': 'btg', 'name': 'Bitcoin Gold', 'e': [{'eid': 'coinome', 'c': ['inr']}]}
+    {'id': 'qtum', 'name': 'Qtum', 'e': [{'eid': 'coinome', 'c': ['inr']}, {'eid': 'coindelta', 'c': ['inr']}]},
+    {'id': 'btg', 'name': 'Bitcoin Gold', 'e': [{'eid': 'coinome', 'c': ['inr']}]},
+    {'id': 'zil', 'name': 'Zilliqa', 'e': [{'eid': 'coindelta', 'c': ['inr']}]},
+    {'id': 'knc', 'name': 'Kyber Network', 'e': [{'eid': 'coindelta', 'c': ['inr']}]}
     ]}
-allCoinsHash = {'bch': {'name': 'Bitcoin Cash', 'e': {'koinex': ['inr'], 'zebpay': ['inr'], 'coinome': ['inr']}},
-                'btc': {'name': 'Bitcoin', 'e': {'koinex': ['inr'], 'unocoin': ['inr'], 'zebpay': ['inr'], 'coinome': ['inr']}},
-                'ltc': {'name': 'Litecoin', 'e': {'koinex': ['inr'], 'zebpay': ['inr'], 'coinome': ['inr']}},
-                'eth': {'name': 'Ether', 'e': {'koinex': ['inr'], 'zebpay': ['inr']}},
-                'xrp': {'name': 'Ripple', 'e': {'koinex': ['inr'], 'zebpay': ['inr']}},
-                'omg': {'name': 'Omisego', 'e': {'koinex': ['inr']}},
+allCoinsHash = {'bch': {'name': 'Bitcoin Cash', 'e': {'koinex': ['inr'], 'zebpay': ['inr'], 'coinome': ['inr'],
+                                                      'coindelta': ['inr']}},
+                'btc': {'name': 'Bitcoin', 'e': {'koinex': ['inr'], 'unocoin': ['inr'], 'zebpay': ['inr'],
+                                                 'coinome': ['inr'], 'coindelta': ['inr']}},
+                'ltc': {'name': 'Litecoin', 'e': {'koinex': ['inr'], 'zebpay': ['inr'], 'coinome': ['inr'],
+                                                  'coindelta': ['inr']}},
+                'eth': {'name': 'Ether', 'e': {'koinex': ['inr'], 'zebpay': ['inr'], 'coindelta': ['inr']}},
+                'xrp': {'name': 'Ripple', 'e': {'koinex': ['inr'], 'zebpay': ['inr'], 'coindelta': ['inr']}},
+                'omg': {'name': 'Omisego', 'e': {'koinex': ['inr'], 'coindelta': ['inr']}},
                 'miota': {'name': 'IOTA', 'e': {'koinex': ['inr']}},
                 'gnt': {'name': 'Golem', 'e': {'koinex': ['inr']}},
                 'req': {'name': 'Request Network', 'e': {'koinex': ['inr']}},
-                'zrx': {'name': '0x Protocol', 'e': {'koinex': ['inr']}},
+                'zrx': {'name': '0x Protocol', 'e': {'koinex': ['inr'], 'coindelta': ['inr']}},
                 'bat': {'name': 'Basic Attention Token', 'e': {'koinex': ['inr']}},
                 'ae': {'name': 'Aeternity', 'e': {'koinex': ['inr']}},
                 'trx': {'name': 'TRON', 'e': {'koinex': ['inr']}},
                 'xlm': {'name': 'Stellar', 'e': {'koinex': ['inr']}},
-                'eos': {'name': 'EOS', 'e': {'koinex': ['inr']}},
+                'eos': {'name': 'EOS', 'e': {'koinex': ['inr'], 'coindelta': ['inr']}},
                 'neo': {'name': 'NEO', 'e': {'koinex': ['inr']}},
                 'gas': {'name': 'GAS', 'e': {'koinex': ['inr']}},
                 'aion': {'name': 'AION', 'e': {'koinex': ['inr']}},
@@ -62,18 +72,35 @@ allCoinsHash = {'bch': {'name': 'Bitcoin Cash', 'e': {'koinex': ['inr'], 'zebpay
                 'dash': {'name': 'DASH', 'e': {'coinome': ['inr']}},
                 'dgb': {'name': 'DigiByte', 'e': {'coinome': ['inr']}},
                 'zec': {'name': 'ZCash', 'e': {'coinome': ['inr']}},
-                'qtum': {'name': 'Qtum', 'e': {'coinome': ['inr']}},
-                'btg': {'name': 'Bitcoin Gold', 'e': {'coinome': ['inr']}}
+                'qtum': {'name': 'Qtum', 'e': {'coinome': ['inr'], 'coindelta': ['inr']}},
+                'btg': {'name': 'Bitcoin Gold', 'e': {'coinome': ['inr']}},
+                'zil': {'name': 'Zilliqa', 'e': {'coindelta': ['inr']}},
+                'knc': {'name': 'Kyber Network', 'e': {'coindelta': ['inr']}}
                 }
 
-coinMapping = {'btc': 'Bitcoin', 'bch': 'Bitcoin Cash', 'xrp': 'Ripple', 'eth': 'Ether', 'ltc': 'Litecoin', 'omg': 'Omisego', 'gnt': 'Golem', 'miota': 'IOTA', 'req': 'Request Network',
-'btc__zebpay': 'Bitcoin  zebpay', 'bch__zebpay': 'Bitcoin Cash  zebpay', 'ltc__zebpay': 'Litecoin  zebpay', 'xrp__zebpay': 'Ripple  zebpay', 'eth__zebpay': 'Ether  zebpay',
-               'btc__unocoin': 'Bitcoin  unocoin', 'btc__koinex': 'Bitcoin  koinex', 'xrp__koinex': 'Ripple  koinex', 'bch__koinex': 'Bitcoin Cash  koinex', 'eth__koinex': 'Ether  koinex',
-               'ltc__koinex': 'Litecoin  koinex', 'omg__koinex': 'Omisego  koinex', 'miota__koinex': 'IOTA  koinex', 'gnt__koinex': 'GOLEM  koinex', 'req__koinex': 'Request Network koinex',
-               'zrx__koinex': '0x Protocol koinex', 'bat__koinex': "Basic Attention Token", 'ae__koinex': "Aeternity", 'trx__koinex': 'TRON', "xlm": 'Stellar',
-               'eos__koinex': 'EOS', 'neo__koinex': 'NEO', 'gas__koinex': 'GAS', 'aion__koinex': 'AION', 'ncash__koinex': 'Nucleus Vision', 'xrb__koinex': 'Nano',
-                'btc__coinome': 'Bitcoin  coinome', 'btg__coinome': 'Bitcoin Gold  coinome', 'bch__coinome': 'Bitcoin Cash  coinome', 'dash__coinome': 'DASH  coinome',
-               'ltc__coinome': 'Litecoin  coinome', 'dgb__coinome': 'DigiByte  coinome', 'zec__coinome': 'ZCash  coinome', 'qtum__coinome': 'Qtum  coinome'
+coinMapping = {'btc': 'Bitcoin', 'bch': 'Bitcoin Cash', 'xrp': 'Ripple', 'eth': 'Ether', 'ltc': 'Litecoin',
+               'omg': 'Omisego', 'gnt': 'Golem', 'miota': 'IOTA', 'req': 'Request Network',
+                'btc__zebpay': 'Bitcoin  zebpay', 'bch__zebpay': 'Bitcoin Cash  zebpay',
+               'ltc__zebpay': 'Litecoin  zebpay',
+               'xrp__zebpay': 'Ripple  zebpay', 'eth__zebpay': 'Ether  zebpay',
+               'btc__unocoin': 'Bitcoin  unocoin', 'btc__koinex': 'Bitcoin  koinex', 'xrp__koinex': 'Ripple  koinex',
+               'bch__koinex': 'Bitcoin Cash  koinex', 'eth__koinex': 'Ether  koinex',
+               'ltc__koinex': 'Litecoin  koinex', 'omg__koinex': 'Omisego  koinex', 'miota__koinex': 'IOTA  koinex',
+               'gnt__koinex': 'GOLEM  koinex', 'req__koinex': 'Request Network koinex',
+               'zrx__koinex': '0x Protocol koinex', 'bat__koinex': "Basic Attention Token", 'ae__koinex': "Aeternity",
+               'trx__koinex': 'TRON', "xlm": 'Stellar',
+               'eos__koinex': 'EOS', 'neo__koinex': 'NEO', 'gas__koinex': 'GAS', 'aion__koinex': 'AION',
+               'ncash__koinex': 'Nucleus Vision', 'xrb__koinex': 'Nano',
+                'btc__coinome': 'Bitcoin  coinome', 'btg__coinome': 'Bitcoin Gold  coinome',
+               'bch__coinome': 'Bitcoin Cash  coinome', 'dash__coinome': 'DASH  coinome',
+               'ltc__coinome': 'Litecoin  coinome', 'dgb__coinome': 'DigiByte  coinome',
+               'zec__coinome': 'ZCash  coinome', 'qtum__coinome': 'Qtum  coinome',
+                'btc__coindelta': 'Bitcoin coindelta', 'bch__coindelta': 'Bitcoin Cash coindelta',
+               'xrp__coindelta': 'Ripple coindelta', 'eth__coindelta': 'Ether coindelta',
+               'omg__coindelta': 'Omisego coindelta', 'ltc__coindelta': 'Litecoin coindelta',
+               'qtum__coindelta': 'Qtum coindelta', 'zil__coindelta': 'Zilliqa coindelta',
+               'zrx__coindelta': '0x Protocol coindelta', 'knc__coindelta': 'Kyber Network coindelta',
+               'eos__coindelta': 'EOS coindelta'
                }
 
 apiUrlMapping = {'btc__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/btc/inr',
@@ -83,7 +110,9 @@ apiUrlMapping = {'btc__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new
                  'eth__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/eth/inr',
                  'koinex': 'https://koinex.in/api/ticker',
                   'unocoin': 'https://www.unocoin.com/api/v1/general/prices',
-                 'coinome': 'https://www.coinome.com/api/v1/ticker.json'}
+                 'coinome': 'https://www.coinome.com/api/v1/ticker.json',
+                 'coindelta': 'https://coindelta.com/api/v1/public/getticker/'
+                 }
 
 zebPayCoins = ["btc", "bch", "ltc", "xrp", "eth"]
 logging.basicConfig(filename='magic.log', level=logging.DEBUG)
@@ -201,6 +230,8 @@ def transform_res(res):
             ret["coinData"].append(transform_zebpay_data(key, values))
         elif "coinome" in key:
             ret["coinData"] = ret["coinData"] + (transform_coinome_data(values))
+        elif "coindelta" in key:
+            ret["coinData"] = ret["coinData"] + (transform_coindelta_data(values))
 
     ret["ts"] = res["ts"]
     return ret
@@ -249,6 +280,18 @@ def transform_coinome_data(res):
         tmp = fill_coin_data(newkey)
         tmp['currency'] = key.lower().split('-')[1]
         tmp["cp"] = str(val['last'])
+        ret.append(tmp)
+    return ret
+
+
+def transform_coindelta_data(res):
+    ret = []
+    for key in res:
+        newkey = (key["MarketName"].lower().split('-')[0] + "__coindelta")
+        tmp = {}
+        tmp = fill_coin_data(newkey)
+        tmp['currency'] = key["MarketName"].lower().split('-')[1]
+        tmp["cp"] = str(key["Last"])
         ret.append(tmp)
     return ret
 
