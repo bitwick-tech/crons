@@ -393,7 +393,10 @@ def transform_bitbns_data(res):
 def transform_buyucoin_data(res):
     ret = []
     for key, val in res['data'].items():
-        newkey = key.lower().split('_')[0] + "__buyucoin"
+        id = key.lower().split('_')[0]
+        if id == 'bcc':
+            id = 'bch'
+        newkey = id + "__buyucoin"
         tmp = {}
         tmp = fill_coin_data(newkey)
         tmp["cp"] = str(val['last_trade'])
