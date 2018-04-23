@@ -375,7 +375,7 @@ def transform_coinome_data(res):
         tmp = fill_coin_data(newkey)
         tmp['currency'] = key.lower().split('-')[1]
         tmp["cp"] = str(val['last'])
-        if tmp['cp'] != 'inr':
+        if tmp['currency'] != 'inr':
             continue
         ret.append(tmp)
     return ret
