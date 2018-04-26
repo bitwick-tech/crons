@@ -31,7 +31,8 @@ allCoinsData = {'coinsData': [
                                           {'eid': 'coindelta', 'c': ['inr']}, {'eid': 'bitbns', 'c': ['inr']},
                                           {'eid': 'buyucoin', 'c': ['inr']}, {'eid': 'wazirx', 'c': ['inr']}]},
     {'id': 'omg', 'name': 'Omisego', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'coindelta', 'c': ['inr']},
-                                            {'eid': 'bitbns', 'c': ['inr']}, {'eid': 'buyucoin', 'c': ['inr']}]},
+                                            {'eid': 'bitbns', 'c': ['inr']}, {'eid': 'buyucoin', 'c': ['inr']},
+                                           {'eid': 'zebpay', 'c': ['inr']}]},
     {'id': 'miota', 'name': 'IOTA', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
     {'id': 'gnt', 'name': 'Golem', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'buyucoin', 'c': ['inr']}]},
     {'id': 'req', 'name': 'Request Network', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'bitbns', 'c': ['inr']}]},
@@ -104,7 +105,7 @@ allCoinsHash = {'bch': {'name': 'Bitcoin Cash', 'e': {'koinex': ['inr'], 'zebpay
                 'xrp': {'name': 'Ripple', 'e': {'koinex': ['inr'], 'zebpay': ['inr'], 'coindelta': ['inr'],
                                                 'bitbns': ['inr'], 'buyucoin': ['inr'], 'wazirx': ['inr']}},
                 'omg': {'name': 'Omisego', 'e': {'koinex': ['inr'], 'coindelta': ['inr'], 'bitbns': ['inr'],
-                                                 'buyucoin': ['inr']}},
+                                                 'buyucoin': ['inr'], 'zebpay': ['inr']}},
                 'miota': {'name': 'IOTA', 'e': {'koinex': ['inr']}},
                 'gnt': {'name': 'Golem', 'e': {'koinex': ['inr'], 'buyucoin': ['inr']}},
                 'req': {'name': 'Request Network', 'e': {'koinex': ['inr'], 'bitbns': ['inr']}},
@@ -158,7 +159,7 @@ allCoinsHash = {'bch': {'name': 'Bitcoin Cash', 'e': {'koinex': ['inr'], 'zebpay
 
 coinMapping = {'btc': 'Bitcoin', 'bch': 'Bitcoin Cash', 'xrp': 'Ripple', 'eth': 'Ether', 'ltc': 'Litecoin',
                'omg': 'Omisego', 'gnt': 'Golem', 'miota': 'IOTA', 'req': 'Request Network',
-                'btc__zebpay': 'Bitcoin  zebpay', 'bch__zebpay': 'Bitcoin Cash  zebpay',
+               'btc__zebpay': 'Bitcoin  zebpay', 'bch__zebpay': 'Bitcoin Cash  zebpay',
                'ltc__zebpay': 'Litecoin  zebpay',
                'xrp__zebpay': 'Ripple  zebpay', 'eth__zebpay': 'Ether  zebpay', 'eos__zebpay': 'EOS zebpay',
                'btc__unocoin': 'Bitcoin  unocoin', 'btc__koinex': 'Bitcoin  koinex', 'xrp__koinex': 'Ripple  koinex',
@@ -185,7 +186,8 @@ coinMapping = {'btc': 'Bitcoin', 'bch': 'Bitcoin Cash', 'xrp': 'Ripple', 'eth': 
                'icx__bitbns': 'ICON bitbns', 'ven__bitbns': 'VeChain bitbns',
                'btc__wazirx': 'Bitcoin  wazirx', 'bch__wazirx': 'Bitcoin Cash  wazirx',
                'ltc__wazirx': 'Litecoin  wazirx', 'trx__wazirx': 'Tron  wazirx', 'dash__wazirx': 'DASH  wazirx',
-               'xrp__wazirx': 'Ripple  wazirx', 'eth__wazirx': 'Ether  wazirx', 'eos__wazirx': 'EOS wazirx'
+               'xrp__wazirx': 'Ripple  wazirx', 'eth__wazirx': 'Ether  wazirx', 'eos__wazirx': 'EOS wazirx',
+               'omg__zebpay': 'Omisego zebpay', 'omg__bitbns': 'Omisego bitbns', 'omg__buyucoin': 'Omisego buyucoin'
                }
 
 apiUrlMapping = {'btc__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/btc/inr',
@@ -194,6 +196,7 @@ apiUrlMapping = {'btc__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new
                  'xrp__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/xrp/inr',
                  'eth__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/eth/inr',
                  'eos__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/eos/inr',
+                 'omg__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/omg/inr',
                  'koinex': 'https://koinex.in/api/ticker',
                  'unocoin': 'https://www.unocoin.com/api/v1/general/prices',
                  'coinome': 'https://www.coinome.com/api/v1/ticker.json',
@@ -203,7 +206,7 @@ apiUrlMapping = {'btc__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new
                  'wazirx': 'https://api.wazirx.com/api/v2/tickers'
                  }
 
-zebPayCoins = ["btc", "bch", "ltc", "xrp", "eth", "eos"]
+zebPayCoins = ["btc", "bch", "ltc", "xrp", "eth", "eos", "omg"]
 logging.basicConfig(filename='magic.log', level=logging.DEBUG)
 results = {}
 openPrice = {}
