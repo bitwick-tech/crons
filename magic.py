@@ -316,7 +316,7 @@ def transform_res(res):
     ret["coinData"] = []
     for key, values in res.items():
         if key == "koinex":
-            ret["coinData"] = ret["coinData"] + (transform_koinex_data(values["prices"]))
+            ret["coinData"] = ret["coinData"] + (transform_koinex_data(values["prices"]["inr"]))
         elif key == "unocoin":
             ret["coinData"].append(transform_unocoin_data(values))
         elif "zebpay" in key:
