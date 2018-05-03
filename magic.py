@@ -34,11 +34,14 @@ allCoinsData = {'coinsData': [
                                             {'eid': 'bitbns', 'c': ['inr']}, {'eid': 'buyucoin', 'c': ['inr']},
                                            {'eid': 'zebpay', 'c': ['inr']}]},
     {'id': 'miota', 'name': 'IOTA', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
-    {'id': 'gnt', 'name': 'Golem', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'buyucoin', 'c': ['inr']}]},
+    {'id': 'gnt', 'name': 'Golem', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'buyucoin', 'c': ['inr']},
+                                         {'eid': 'zebpay', 'c': ['inr']}]},
     {'id': 'req', 'name': 'Request Network', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'bitbns', 'c': ['inr']}]},
     {'id': 'zrx', 'name': '0x Protocol', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'coindelta', 'c': ['inr']}]},
     {'id': 'bat', 'name': 'Basic Attention Token', 'e': [{'eid': 'koinex', 'c': ['inr']},
-                                                         {'eid': 'buyucoin', 'c': ['inr']}]},
+                                                         {'eid': 'buyucoin', 'c': ['inr']},
+                                                         {'eid': 'wazirx', 'c': ['inr']}
+                                                         ]},
     {'id': 'ae', 'name': 'Aeternity', 'e': [{'eid': 'koinex', 'c': ['inr']}]},
     {'id': 'trx', 'name': 'TRON', 'e': [{'eid': 'koinex', 'c': ['inr']}, {'eid': 'bitbns', 'c': ['inr']},
                                         {'eid': 'wazirx', 'c': ['inr']}, {'eid': 'zebpay', 'c': ['inr']}]},
@@ -60,7 +63,8 @@ allCoinsData = {'coinsData': [
     {'id': 'qtum', 'name': 'Qtum', 'e': [{'eid': 'coinome', 'c': ['inr']}, {'eid': 'coindelta', 'c': ['inr']},
                                          {'eid': 'buyucoin', 'c': ['inr']}]},
     {'id': 'btg', 'name': 'Bitcoin Gold', 'e': [{'eid': 'coinome', 'c': ['inr']}]},
-    {'id': 'zil', 'name': 'Zilliqa', 'e': [{'eid': 'coindelta', 'c': ['inr']}, {'eid': 'bitbns', 'c': ['inr']}]},
+    {'id': 'zil', 'name': 'Zilliqa', 'e': [{'eid': 'coindelta', 'c': ['inr']}, {'eid': 'bitbns', 'c': ['inr']},
+                                           {'eid': 'koinex', 'c': ['inr']}]},
     {'id': 'knc', 'name': 'Kyber Network', 'e': [{'eid': 'coindelta', 'c': ['inr']}]},
     {'id': 'rpx', 'name': 'Red Pulse', 'e': [{'eid': 'bitbns', 'c': ['inr']}]},
     {'id': 'dbc', 'name': 'DeepBrain Chain', 'e': [{'eid': 'bitbns', 'c': ['inr']}]},
@@ -107,10 +111,11 @@ allCoinsHash = {'bch': {'name': 'Bitcoin Cash', 'e': {'koinex': ['inr'], 'zebpay
                 'omg': {'name': 'Omisego', 'e': {'koinex': ['inr'], 'coindelta': ['inr'], 'bitbns': ['inr'],
                                                  'buyucoin': ['inr'], 'zebpay': ['inr']}},
                 'miota': {'name': 'IOTA', 'e': {'koinex': ['inr']}},
-                'gnt': {'name': 'Golem', 'e': {'koinex': ['inr'], 'buyucoin': ['inr']}},
+                'gnt': {'name': 'Golem', 'e': {'koinex': ['inr'], 'buyucoin': ['inr'], 'zebpay': ['inr']}},
                 'req': {'name': 'Request Network', 'e': {'koinex': ['inr'], 'bitbns': ['inr']}},
                 'zrx': {'name': '0x Protocol', 'e': {'koinex': ['inr'], 'coindelta': ['inr']}},
-                'bat': {'name': 'Basic Attention Token', 'e': {'koinex': ['inr'], 'buyucoin': ['inr']}},
+                'bat': {'name': 'Basic Attention Token', 'e': {'koinex': ['inr'], 'buyucoin': ['inr'],
+                                                               'wazirx': ['inr']}},
                 'ae': {'name': 'Aeternity', 'e': {'koinex': ['inr']}},
                 'trx': {'name': 'TRON', 'e': {'koinex': ['inr'], 'bitbns': ['inr'], 'wazirx': ['inr'],
                                               'zebpay': ['inr']}},
@@ -128,7 +133,7 @@ allCoinsHash = {'bch': {'name': 'Bitcoin Cash', 'e': {'koinex': ['inr'], 'zebpay
                 'zec': {'name': 'ZCash', 'e': {'coinome': ['inr'], 'buyucoin': ['inr']}},
                 'qtum': {'name': 'Qtum', 'e': {'coinome': ['inr'], 'coindelta': ['inr'], 'buyucoin': ['inr']}},
                 'btg': {'name': 'Bitcoin Gold', 'e': {'coinome': ['inr']}},
-                'zil': {'name': 'Zilliqa', 'e': {'coindelta': ['inr'], 'bitbns': ['inr']}},
+                'zil': {'name': 'Zilliqa', 'e': {'coindelta': ['inr'], 'bitbns': ['inr'], 'koinex': ['inr']}},
                 'knc': {'name': 'Kyber Network', 'e': {'coindelta': ['inr']}},
                 'rpx': {'name': 'Red Pulse', 'e': {'bitbns': ['inr']}},
                 'dbc': {'name': 'DeepBrain Chain', 'e': {'bitbns': ['inr']}},
@@ -189,7 +194,9 @@ coinMapping = {'btc': 'Bitcoin', 'bch': 'Bitcoin Cash', 'xrp': 'Ripple', 'eth': 
                'btc__wazirx': 'Bitcoin  wazirx', 'bch__wazirx': 'Bitcoin Cash  wazirx',
                'ltc__wazirx': 'Litecoin  wazirx', 'trx__wazirx': 'Tron  wazirx', 'dash__wazirx': 'DASH  wazirx',
                'xrp__wazirx': 'Ripple  wazirx', 'eth__wazirx': 'Ether  wazirx', 'eos__wazirx': 'EOS wazirx',
-               'omg__zebpay': 'Omisego zebpay', 'omg__bitbns': 'Omisego bitbns', 'omg__buyucoin': 'Omisego buyucoin'
+               'omg__zebpay': 'Omisego zebpay', 'omg__bitbns': 'Omisego bitbns', 'omg__buyucoin': 'Omisego buyucoin',
+               'gnt__zebpay': 'Golem zebpay', 'zil__koinex': 'Zilliqa koinex',
+               'bat__wazirx': 'Basic Attention Token wazirx'
                }
 
 apiUrlMapping = {'btc__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/btc/inr',
@@ -200,6 +207,7 @@ apiUrlMapping = {'btc__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new
                  'eos__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/eos/inr',
                  'omg__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/omg/inr',
                  'trx__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/trx/inr',
+                 'gnt__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/gnt/inr',
                  'koinex': 'https://koinex.in/api/ticker',
                  'unocoin': 'https://www.unocoin.com/api/v1/general/prices',
                  'coinome': 'https://www.coinome.com/api/v1/ticker.json',
@@ -209,7 +217,7 @@ apiUrlMapping = {'btc__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new
                  'wazirx': 'https://api.wazirx.com/api/v2/tickers'
                  }
 
-zebPayCoins = ["btc", "bch", "ltc", "xrp", "eth", "eos", "omg", "trx"]
+zebPayCoins = ["btc", "bch", "ltc", "xrp", "eth", "eos", "omg", "trx", "gnt"]
 logging.basicConfig(filename='magic.log', level=logging.DEBUG)
 results = {}
 openPrice = {}
