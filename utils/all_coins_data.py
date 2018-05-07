@@ -11,7 +11,7 @@ currencies = ["inr"]
 coinIds = ["bch", "btc", "ltc", "eth", "xrp", "omg", "miota", "gnt", "req", "zrx", "bat", "ae", "trx", "xlm", "eos",
            "neo", "gas", "aion", "ncash", "xrb", 'dash', 'dgb', 'zec', 'qtum', 'btg', 'zil', 'knc', 
            'rpx', 'dbc', 'xmr', 'doge', 'sc', 'etn', 'ont', 'poly', 'ada', 'icx', 'ven', 'ark', 'bts', 'cloak', 'cvc',
-           'dcn', 'etc', 'fct', 'lsk', 'nxt', 'pay', 'pivx', 'rep', 'steem', 'strat', 'xem'
+           'dcn', 'etc', 'fct', 'lsk', 'nxt', 'pay', 'pivx', 'rep', 'steem', 'strat', 'xem', 'zco'
            ]
 
 coinNames = ["Bitcoin Cash", "Bitcoin", "Litecoin", "Ether", "Ripple", "Omisego", "IOTA", "Golem", "Request Network",
@@ -19,7 +19,7 @@ coinNames = ["Bitcoin Cash", "Bitcoin", "Litecoin", "Ether", "Ripple", "Omisego"
              "Nucleus Vision", "Nano", "DASH", "dgb", "ZCash", "Qtum", "Bitcoin Gold", "Zilliqa", "Kyber Network",
              'Red Pulse', 'DeepBrain Chain', 'Monero', 'Dogecoin', 'Siacoin', 'Electroneum', 'Ontology', 'Polymath',
              'Cardano', 'ICON', 'VeChain', 'Ark', 'BitShares', 'CloakCoin', 'Civic', 'Dentacoin', 'Ethereum Classic',
-             'Factom', 'Lisk', 'Nxt', 'TenX', 'PIVX', 'Augur', 'Steem', 'Stratis', 'NEM'
+             'Factom', 'Lisk', 'Nxt', 'TenX', 'PIVX', 'Augur', 'Steem', 'Stratis', 'NEM', 'Zebi'
              ]
 
 coinIdNameMapping = {'bch': 'Bitcoin Cash', 'btc': 'Bitcoin', 'ltc': 'Litecoin', 'eth': 'Ether', 'xrp': 'Ripple',
@@ -32,7 +32,8 @@ coinIdNameMapping = {'bch': 'Bitcoin Cash', 'btc': 'Bitcoin', 'ltc': 'Litecoin',
                      'poly': 'Polymath', 'ada': 'Cardano', 'icx': 'ICON', 'ven': 'VeChain', 'ark': 'Ark',
                      'bts': 'BitShares', 'cloak': 'CloakCoin', 'cvc': 'Civic', 'dcn': 'Dentacoin',
                      'etc': 'Ethereum Classic', 'fct': 'Factom', 'lsk': 'Lisk', 'nxt': 'Nxt', 'pay': 'TenX',
-                     'pivx': 'PIVX', 'rep': 'Augur', 'steem': 'Steem', 'strat': 'Stratis', 'xem': 'NEM'
+                     'pivx': 'PIVX', 'rep': 'Augur', 'steem': 'Steem', 'strat': 'Stratis', 'xem': 'NEM',
+                     'zco': 'Zebi'
                      }
 
 coinNameIdMapping = {'Bitcoin Cash': 'bch', 'Bitcoin': 'btc', 'Litecoin': 'ltc', 'Ether': 'eth', 'Ripple': 'xrp',
@@ -45,7 +46,8 @@ coinNameIdMapping = {'Bitcoin Cash': 'bch', 'Bitcoin': 'btc', 'Litecoin': 'ltc',
                      'Polymath': 'poly', 'Cardano': 'ada', 'ICON': 'icx', 'VeChain': 'ven', 'Ark': 'ark',
                      'BitShares': 'bts', 'CloakCoin': 'cloak', 'Civic': 'cvc', 'Dentacoin': 'dcn',
                      'Ethereum Classic': 'etc', 'Factom': 'fct', 'Lisk': 'lsk', 'Nxt': 'nxt', 'TenX': 'pay',
-                     'PIVX': 'pivx', 'Augur': 'rep', 'Steem': 'steem', 'Stratis': 'strat', 'NEM': 'xem'
+                     'PIVX': 'pivx', 'Augur': 'rep', 'Steem': 'steem', 'Stratis': 'strat', 'NEM': 'xem',
+                     'Zebi': 'zco'
                      }
 
 allCoinsData = {'coinsData': [
@@ -130,7 +132,8 @@ allCoinsData = {'coinsData': [
     {'id': 'rep', 'name': 'Augur', 'e': [{'eid': 'buyucoin', 'c': ['inr']}, {'eid': 'buyucoin', 'c': ['inr']}]},
     {'id': 'steem', 'name': 'Steem', 'e': [{'eid': 'buyucoin', 'c': ['inr']}]},
     {'id': 'strat', 'name': 'Stratis', 'e': [{'eid': 'buyucoin', 'c': ['inr']}]},
-    {'id': 'xem', 'name': 'NEM', 'e': [{'eid': 'buyucoin', 'c': ['inr']}]}
+    {'id': 'xem', 'name': 'NEM', 'e': [{'eid': 'buyucoin', 'c': ['inr']}]},
+    {'id': 'zco', 'name': 'Zebi', 'e': [{'eid': 'koinex', 'c': ['inr']}]}
     ]}
 allCoinsHash = {'bch': {'name': 'Bitcoin Cash', 'e': {'koinex': ['inr'], 'zebpay': ['inr'], 'coinome': ['inr'],
                                                       'coindelta': ['inr'], 'bitbns': ['inr'], 'buyucoin': ['inr'],
@@ -197,7 +200,8 @@ allCoinsHash = {'bch': {'name': 'Bitcoin Cash', 'e': {'koinex': ['inr'], 'zebpay
                 'rep': {'name': 'Augur', 'e': {'buyucoin': ['inr']}},
                 'steem': {'name': 'Steem', 'e': {'buyucoin': ['inr']}},
                 'strat': {'name': 'Stratis', 'e': {'buyucoin': ['inr']}},
-                'xem': {'name': 'NEM', 'e': {'buyucoin': ['inr']}}
+                'xem': {'name': 'NEM', 'e': {'buyucoin': ['inr']}},
+                'zco': {'name': 'Zebi', 'e': {'koinex': ['inr']}}
                 }
 
 

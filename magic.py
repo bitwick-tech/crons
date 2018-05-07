@@ -93,7 +93,8 @@ allCoinsData = {'coinsData': [
     {'id': 'rep', 'name': 'Augur', 'e': [{'eid': 'buyucoin', 'c': ['inr']}, {'eid': 'buyucoin', 'c': ['inr']}]},
     {'id': 'steem', 'name': 'Steem', 'e': [{'eid': 'buyucoin', 'c': ['inr']}]},
     {'id': 'strat', 'name': 'Stratis', 'e': [{'eid': 'buyucoin', 'c': ['inr']}]},
-    {'id': 'xem', 'name': 'NEM', 'e': [{'eid': 'buyucoin', 'c': ['inr']}]}
+    {'id': 'xem', 'name': 'NEM', 'e': [{'eid': 'buyucoin', 'c': ['inr']}]},
+    {'id': 'zco', 'name': 'Zebi', 'e': [{'eid': 'koinex', 'c': ['inr']}]}
     ]}
 allCoinsHash = {'bch': {'name': 'Bitcoin Cash', 'e': {'koinex': ['inr'], 'zebpay': ['inr'], 'coinome': ['inr'],
                                                       'coindelta': ['inr'], 'bitbns': ['inr'], 'buyucoin': ['inr'],
@@ -160,7 +161,8 @@ allCoinsHash = {'bch': {'name': 'Bitcoin Cash', 'e': {'koinex': ['inr'], 'zebpay
                 'rep': {'name': 'Augur', 'e': {'buyucoin': ['inr']}},
                 'steem': {'name': 'Steem', 'e': {'buyucoin': ['inr']}},
                 'strat': {'name': 'Stratis', 'e': {'buyucoin': ['inr']}},
-                'xem': {'name': 'NEM', 'e': {'buyucoin': ['inr']}}
+                'xem': {'name': 'NEM', 'e': {'buyucoin': ['inr']}},
+                'zco': {'name': 'Zebi', 'e': {'koinex': ['inr']}}
                 }
 
 coinMapping = {'btc': 'Bitcoin', 'bch': 'Bitcoin Cash', 'xrp': 'Ripple', 'eth': 'Ether', 'ltc': 'Litecoin',
@@ -196,7 +198,7 @@ coinMapping = {'btc': 'Bitcoin', 'bch': 'Bitcoin Cash', 'xrp': 'Ripple', 'eth': 
                'xrp__wazirx': 'Ripple  wazirx', 'eth__wazirx': 'Ether  wazirx', 'eos__wazirx': 'EOS wazirx',
                'omg__zebpay': 'Omisego zebpay', 'omg__bitbns': 'Omisego bitbns', 'omg__buyucoin': 'Omisego buyucoin',
                'gnt__zebpay': 'Golem zebpay', 'zil__koinex': 'Zilliqa koinex',
-               'bat__wazirx': 'Basic Attention Token wazirx'
+               'bat__wazirx': 'Basic Attention Token wazirx', 'zco__koinex': 'Zebi koinex'
                }
 
 apiUrlMapping = {'btc__zebpay': 'https://www.zebapi.com/api/v1/market/ticker-new/btc/inr',
